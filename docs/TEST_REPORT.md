@@ -1,16 +1,16 @@
 # Codex Project Hub 最终测试报告
 
-> **技术门禁结论：PASS。发布结论：NO-GO。** 本报告记录 2026-08-20 对准确 clean-root 源提交的最终实测。NO-GO 原因仅为许可证、版权与品牌决定、发布授权、历史边界和远端安全报告配置，详见 [FINAL_ACCEPTANCE.md](FINAL_ACCEPTANCE.md)。
+> **技术门禁结论：PASS。发布准备结论：GO。** 本报告记录 2026-08-20 对 clean-root 发布源的最终实测。所有者已批准 Apache-2.0、Copyright 2026 wyg、品牌决定、目标仓库和 `v0.1.0` 发布；远端 Private Vulnerability Reporting 已启用。
 
 ## 1. 测试对象与环境
 
 | 字段 | 实测值 |
 |---|---|
-| 测试时间 | 2026-08-20 约 16:00–16:10（UTC+08:00） |
-| 分支 | `main` |
-| 被测 clean-root 源提交 | `afadcda81bc6a649b8a38992f03a9b307454758f` |
-| 提交父节点 | 0（root commit） |
-| 被跟踪文件 | 130 |
+| 测试时间 | 2026-08-20 约 17:00–17:10（UTC+08:00） |
+| 分支 | `chore/open-source-release`（计划推送为远端 `main`） |
+| 被测发布源提交 | `531ce8562b724600b7b052a11165ca1bff132e42` |
+| 历史形态 | 0-parent clean-root；3 commits |
+| 被跟踪文件 | 132 |
 | 操作系统 | Windows 11 Pro 10.0.26200 |
 | Python | CPython 3.11.9 |
 | Node.js | 24.18.0，满足 `>=22.12.0` |
@@ -18,7 +18,7 @@
 | Git | 2.55.0.windows.3 |
 | 安装起点 | 全新 `.venv`，按公开安装流程执行 |
 
-本报告及最终验收记录的后续提交属于 **evidence-only** 文档更新，不改变上述被测源代码。若代码、依赖锁、安装/启动脚本或测试发生变化，必须对受影响门禁重新实测并记录新的源提交。
+0-parent 应用源提交 `afadcda…` 已完成全新安装；`531ce85…` 仅新增/同步许可证、NOTICE、公开发布状态、私密安全入口和 npm package license metadata，没有改变依赖解析、应用代码、安装/启动脚本或测试。其上重新执行了完整 `test-all.bat`。本报告及最终验收记录的后续提交属于 **evidence-only** 文档更新。
 
 ## 2. 全新安装验收
 
@@ -36,17 +36,17 @@
 
 ## 3. 完整自动化门禁
 
-`test-all.bat` 在同一 clean-root 源提交上完整执行并返回 `TEST_ALL_STATUS=PASS`。
+`test-all.bat` 在提交 `531ce8562b724600b7b052a11165ca1bff132e42` 上完整执行并返回 `TEST_ALL_STATUS=PASS`。
 
 | 门禁 | 结果 | 耗时/证据 |
 |---|---|---|
 | Python lock verifier | PASS | 9 direct / 53 packages / 53 hashed wheels |
 | `pip check` | PASS | 已安装 Python 环境依赖一致 |
 | `pip-audit --local --strict` | PASS | 未发现已知漏洞 |
-| 后端 pytest | PASS | 77 passed，6 warnings，182.29s |
-| 前端 Vitest | PASS | 15/15，25.07s |
-| TypeScript + Vite build | PASS | 211 modules，2.13s |
-| Playwright E2E | PASS | 4 passed；1 个需显式 opt-in 的文档截图用例按设计 skipped；44.3s |
+| 后端 pytest | PASS | 77 passed，1 warning，333.88s |
+| 前端 Vitest | PASS | 15/15，94.81s |
+| TypeScript + Vite build | PASS | 211 modules，2.84s |
+| Playwright E2E | PASS | 4 passed；1 个需显式 opt-in 的文档截图用例按设计 skipped；51.7s |
 | 状态与 demo 辅助脚本检查 | PASS | `update-codex-status.py --help` 与 `create-demo-repo.py --help` 成功 |
 
 仓库没有独立 lint script，因此未虚构 lint 结果。TypeScript 检查由生产构建中的 `tsc -b` 执行。
@@ -94,9 +94,11 @@ E2E 使用系统临时目录中的合成 Git 仓库、独立 SQLite 数据和专
 | Gitleaks 8.30 canary | PASS | canary 能被检测，验证扫描不是空跑 |
 | 原工作区历史 Gitleaks | PASS | 0 findings |
 | clean-root 历史 Gitleaks | PASS | 0 findings |
-| Markdown 本地链接 | PASS | 16 个 Markdown、46 个本地目标、0 broken |
+| Markdown 本地链接 | PASS | 16 个 Markdown、51 个本地目标、0 broken |
 | GitHub Issue YAML | PASS | 3 个 YAML 均可解析并通过结构检查 |
-| README 双语、徽章与截图引用 | PASS | 双语结构与截图路径一致，静态徽章可访问 |
+| README 双语、徽章与截图引用 | PASS | 双语结构、4 个相同静态徽章与截图路径一致；Apache-2.0 badge 有真实许可证支撑 |
+| 项目许可证 | PASS | `LICENSE` 与 Apache 官方 2.0 文本规范化后逐字一致；`NOTICE`、README 与 npm metadata 为 Copyright 2026 wyg / Apache-2.0 |
+| 私密漏洞报告 | PASS | GitHub API 返回 Private Vulnerability Reporting `enabled: true`；Issue/security 文档指向私密流程 |
 | Python/npm locks 与第三方清单 | PASS | 直接依赖版本一致；Python lock 哈希校验成功 |
 
 Gitleaks 的 0 findings 只表示其规则未发现秘密，不等于旧 Git 历史可公开。旧历史仍包含不应发布的内部内容，因此发布只能使用已审计的 clean-root 历史，绝不能推送旧历史。
@@ -120,6 +122,6 @@ Gitleaks 的 0 findings 只表示其规则未发现秘密，不等于旧 Git 历
 
 ## 9. 最终结论
 
-被测 clean-root 源提交 `afadcda81bc6a649b8a38992f03a9b307454758f` 的安装、自动化测试、响应式检查、截图、启停、依赖审计、秘密扫描和公开文档门禁均通过。
+clean-root 应用源的全新安装、响应式检查、截图、启停、依赖审计和秘密扫描已通过；发布源提交 `531ce8562b724600b7b052a11165ca1bff132e42` 的法律/包元数据同步与完整自动化门禁也已通过。
 
-技术验收为 **PASS**；首次公开发布仍为 **NO-GO**。剩余阻断只包括：许可证/版权主体/初始年份、品牌决定、显式发布批准、只能发布 clean-root 且绝不能推送旧历史，以及经批准后启用远端 Private Vulnerability Reporting。详见 [FINAL_ACCEPTANCE.md](FINAL_ACCEPTANCE.md)。
+技术验收为 **PASS**；所有者发布批准与远端私密安全入口均已闭环，首次公开发布准备结论为 **GO**。发布仍只能使用准确 clean-root HEAD，绝不能推送旧历史，并须在创建 tag/Release 前等待 GitHub CI 通过。详见 [FINAL_ACCEPTANCE.md](FINAL_ACCEPTANCE.md)。

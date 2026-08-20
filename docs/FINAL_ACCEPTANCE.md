@@ -1,20 +1,20 @@
 # Codex Project Hub 最终验收记录
 
-> **技术验收：PASS。首次公开发布：NO-GO。** 2026-08-20 已完成对准确 clean-root 源提交的最终实测；当前 NO-GO 只来自尚未完成的治理、历史边界、远端安全报告配置与显式发布授权，不来自测试或截图失败。
+> **技术验收：PASS。首次公开发布准备：GO。** 2026-08-20 已完成 clean-root 候选实测；所有者随后批准 Apache-2.0、Copyright 2026 wyg、`v0.1.0`、保留品牌与准确目标仓库，并授权首次公开发布。GitHub Private Vulnerability Reporting 已启用并复核。
 
 | 字段 | 验收值 |
 |---|---|
-| 验收时间 | 2026-08-20 约 16:00–16:10（UTC+08:00） |
-| 分支 | `main` |
-| 被测 clean-root 源提交 | `afadcda81bc6a649b8a38992f03a9b307454758f` |
-| 提交形态 | 0 parents；130 tracked files |
+| 验收时间 | 2026-08-20 约 17:00–17:10（UTC+08:00） |
+| 分支 | `chore/open-source-release`（计划推送为远端 `main`） |
+| 被测发布源提交 | `531ce8562b724600b7b052a11165ca1bff132e42` |
+| 提交形态 | 0-parent clean-root 历史；3 commits；132 tracked files |
 | 操作系统 | Windows 11 Pro 10.0.26200 |
 | Python | 3.11.9 |
 | Node.js / npm | 24.18.0 / 11.16.0 |
 | Git | 2.55.0.windows.3 |
 | 详细证据 | [TEST_REPORT.md](TEST_REPORT.md) |
 
-本记录和测试报告的后续提交属于 **evidence-only** 文档更新，不改变被测源代码。任何代码、依赖锁、安装/启动脚本或测试变化都必须重新执行受影响门禁，不能沿用本结论。
+初始 0-parent 源提交 `afadcda…` 已完成全新安装验收；`531ce85…` 仅新增/同步 Apache-2.0 法律文本、发布状态、GitHub 私密安全入口与包级 license metadata，不改变依赖解析、应用代码、安装/启动脚本或测试。其上重新执行了完整 `test-all.bat`。本记录和测试报告的后续提交属于 **evidence-only** 文档更新。
 
 ## 功能门禁
 
@@ -41,10 +41,10 @@
 ## 自动化质量门禁
 
 - [x] 全新 `install.bat`：新建虚拟环境、锁校验、Python/npm 安装、Playwright Chromium、生产构建、`pip check` 与 SQLite 初始化均成功。
-- [x] 后端 pytest：77 passed；常规门禁 6 warnings，展开复跑仅 1 条可见非安全阻断 `StarletteDeprecationWarning`。
-- [x] 前端 Vitest：15/15。
-- [x] TypeScript 与 Vite 生产构建：211 modules；TypeScript 检查由 `tsc -b` 完成。
-- [x] Playwright：4 passed；文档截图用例在常规门禁中按设计 opt-in skipped，随后独立执行 1 passed。
+- [x] 后端 pytest：77 passed；1 条已记录、非安全阻断的 `StarletteDeprecationWarning`；333.88s。
+- [x] 前端 Vitest：15/15；94.81s。
+- [x] TypeScript 与 Vite 生产构建：211 modules；TypeScript 检查由 `tsc -b` 完成；2.84s。
+- [x] Playwright：4 passed；文档截图用例在常规门禁中按设计 opt-in skipped；51.7s。公开截图此前独立 capture 1 passed。
 - [x] 1366×768、1920×1080、2560×1440 三分辨率检查。
 - [x] 正常业务流程 console error 与 page error 均为 0。
 - [x] `test-all.bat` 完整本地门禁返回 PASS。
@@ -60,8 +60,9 @@
 - [x] `README.md` 与 `README.zh-CN.md` 的安装、配置、功能边界、徽章和截图来自当前实现。
 - [x] `SECURITY.md`、`PRIVACY.md`、`CONTRIBUTING.md`、`SUPPORT.md`、`CODE_OF_CONDUCT.md` 与 Issue/PR 模板完成复核。
 - [x] `THIRD_PARTY_NOTICES.md` 与 Python requirements/lock、npm lock 和发布构建一致。
+- [x] `LICENSE` 与 Apache 官方 2.0 文本规范化后逐字一致；`NOTICE`、README 与 npm package metadata 均为 Copyright 2026 wyg / Apache-2.0。
 - [x] `docs/images/dashboard-overview.webp` 与 `docs/images/project-dashboard.webp` 来自运行中的应用和合成数据；均为 1920×1080，并完成隐私、来源与渲染检查。
-- [x] 16 个 Markdown 的 46 个本地目标无断链；3 个 GitHub Issue YAML 可解析。
+- [x] 16 个 Markdown 的 51 个本地目标无断链；3 个 GitHub Issue YAML 可解析。
 - [x] clean-root 跟踪集与历史完成秘密/资源扫描；旧历史被明确判定为不可发布。
 - [x] Release Notes 中可填写的测试与验证结果均由本记录和测试报告支持。
 
@@ -72,18 +73,16 @@
 - [ ] 独立性能基准：未执行。没有可公开复现的夹具规模、硬件、冷热缓存、重复次数与统计方式，因此不声明性能提升。
 - [ ] 独立 lint：仓库未配置 lint script；TypeScript 检查已由生产构建执行。本项不是失败，也不标记为通过。
 
-## 当前发布阻断项
+## 已解除的发布阻断与执行约束
 
-以下事项在完成并记录批准前持续阻断首次公开发布：
+- [x] 所有者选择 Apache-2.0，并确认 Copyright 2026 wyg。
+- [x] 所有者决定保留 `Codex Project Hub`，接受独立非官方项目声明下的品牌风险。
+- [x] 所有者明确批准目标 `wyg916/codex-project-hub`、版本 `v0.1.0`、推送、tag 与 Release。
+- [x] GitHub Private Vulnerability Reporting 已通过 API 启用并返回 `enabled: true`。
+- [x] 发布源保持 0-parent clean-root；旧本地历史与旧 refs 不进入远端。
 
-1. 所有者必须选定项目许可证，确认版权主体与初始年份，并加入获批准的最终许可证文件；当前不得声称已获得开源授权。
-2. 所有者必须完成 `Codex` 名称的品牌决定或法律/品牌复核；非官方声明不能替代该决定。
-3. 所有者必须对首次公开发布、远端写入、tag 与 Release 给出显式批准。
-4. 只能从已审计的 clean-root 历史发布；绝不能推送、合并或恢复旧历史中的内部内容。
-5. 远端 Private Vulnerability Reporting 当前未启用；必须在获得批准后启用并复核真实私密报告入口，不得虚构私密邮箱或让用户在公开 Issue 中披露漏洞。
+发布执行仍必须只推送准确的 clean-root HEAD 到空仓 `main`，禁止 `--all`、`--mirror`、force push 或任何旧历史 ref；创建 tag/Release 前必须等待 GitHub CI 通过。
 
 ## 验收结论
 
-准确 clean-root 源提交 `afadcda81bc6a649b8a38992f03a9b307454758f` 的安装、自动化测试、响应式检查、截图、启停、依赖审计、秘密扫描与公开文档门禁均通过，技术验收结论为 **PASS**。
-
-由于上述 5 项发布治理阻断尚未解除，首次公开发布结论保持 **NO-GO**。解除阻断并取得显式批准前，不得配置发布远端、推送、打 tag 或创建 GitHub Release。
+clean-root 发布源提交 `531ce8562b724600b7b052a11165ca1bff132e42` 的法律/包元数据同步与完整自动化门禁通过；其应用源基线的全新安装、响应式检查、截图、启停、依赖审计和秘密扫描证据仍有效。技术验收结论为 **PASS**，所有者发布批准完整，首次公开发布准备结论为 **GO**。
