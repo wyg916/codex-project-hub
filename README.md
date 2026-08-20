@@ -222,10 +222,6 @@ Copyright 2026 wyg. Licensed under the [Apache License 2.0](LICENSE).
 
 Third-party components retain their own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [NOTICE](NOTICE).
 
-## Acknowledgements
-
-Codex Project Hub is built with FastAPI, React, React Flow, Vite, watchdog, SQLite, Vitest, and Playwright. Thanks to their maintainers and to all transitive dependency authors. No upstream project name, logo, screenshot, or README text is adopted as this project's branding.
-
 ## Independent project notice
 
 > Codex Project Hub is an independent open-source project and is not affiliated with, endorsed by, or sponsored by OpenAI.
