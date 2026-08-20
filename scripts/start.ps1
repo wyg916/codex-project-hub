@@ -115,11 +115,6 @@ function Get-ControlledListenerForLauncher([int]$LauncherPid) {
     return $Candidate
 }
 
-if (-not (Test-Path -LiteralPath $Python) -or -not (Test-Path -LiteralPath "frontend\dist\index.html")) {
-    Write-Error "Dependencies or frontend build are missing. Run install.bat first."
-    exit 1
-}
-
 $OwnedServer = Get-OwnedServerProcess
 if ($OwnedServer) {
     for ($Attempt = 0; $Attempt -lt 10; $Attempt++) {
@@ -135,6 +130,11 @@ if ($OwnedServer) {
         Start-Sleep -Milliseconds 250
     }
     throw "The managed Codex Project Hub instance owns port 8765 but did not become healthy."
+}
+
+if (-not (Test-Path -LiteralPath $Python) -or -not (Test-Path -LiteralPath "frontend\dist\index.html")) {
+    Write-Error "Dependencies or frontend build are missing. Run install.bat first."
+    exit 1
 }
 
 $UnownedHealth = Test-ControlCenterHealth

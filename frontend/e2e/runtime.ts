@@ -16,6 +16,7 @@ const stderrPath = join(runtimeRoot, 'server.err.log')
 const healthTimeoutMs = 30_000
 const healthPollMs = 250
 const maxDiagnosticChars = 2_000
+const cleanupOptions = { recursive: true, force: true, maxRetries: 10, retryDelay: 250 } as const
 
 interface ManagedChildProcess {
   pid?: number
@@ -66,7 +67,7 @@ function git(cwd: string, ...args: string[]): string {
 
 export function prepareRuntime(): void {
   assertSafeRuntimeRoot()
-  if (existsSync(runtimeRoot)) rmSync(runtimeRoot, { recursive: true, force: true })
+  if (existsSync(runtimeRoot)) rmSync(runtimeRoot, cleanupOptions)
   mkdirSync(repoPath, { recursive: true })
   git(repoPath, 'init', '-b', 'main')
   git(repoPath, 'config', 'user.name', 'Example Developer')
@@ -95,7 +96,7 @@ function assertSafeRuntimeRoot(): void {
 
 export function cleanupRuntime(): void {
   assertSafeRuntimeRoot()
-  if (existsSync(runtimeRoot)) rmSync(runtimeRoot, { recursive: true, force: true })
+  if (existsSync(runtimeRoot)) rmSync(runtimeRoot, cleanupOptions)
 }
 
 function readPid(): number | null {
