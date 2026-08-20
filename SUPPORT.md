@@ -7,7 +7,7 @@ For installation, configuration, and normal operation, read:
 - [README.md](README.md)
 - [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
 - [docs/STATUS_SCHEMA.md](docs/STATUS_SCHEMA.md)
-- [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the pending release-candidate validation record
+- [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the dated release-candidate validation record
 
 Common local checks:
 
@@ -46,6 +46,6 @@ This project can help diagnose its own installation, API, UI, scanning, and stat
 - support for exposing the current single-user service to an untrusted network;
 - private Codex conversation access or agent-operation support;
 - GitHub/GitLab pull-request or CI administration; or
-- guaranteed response times during the pre-release phase.
+- guaranteed response times.
 
 The project is maintained on a best-effort basis.

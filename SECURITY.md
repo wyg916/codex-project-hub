@@ -2,20 +2,18 @@
 
 ## Release status and supported versions
 
-Codex Project Hub is preparing for its initial public release. No public version is currently supported, and no open-source license has been granted yet.
+Codex Project Hub publishes security fixes for the current `0.1.x` release line on a best-effort basis.
 
 | Version | Supported |
 |---|---|
-| Unreleased development branch | Reviewed during release preparation |
-| Public releases | None yet |
-
-After the first release, this table will identify the versions that receive security fixes.
+| `0.1.x` | Yes |
+| Older releases | No |
 
 ## Report a vulnerability privately
 
 Do not publish exploit details, credentials, private repository names, local paths, screenshots, or proof-of-concept data in a public issue.
 
-Use GitHub's **Report a vulnerability** flow in the repository Security tab when Private Vulnerability Reporting is available. If that feature is unavailable, contact the repository owner through the private contact method shown on the owner's GitHub profile and request a private reporting channel. A public issue may state only that a private security contact is needed; it must not contain vulnerability details.
+Use GitHub's **Report a vulnerability** flow in the repository Security tab. Private Vulnerability Reporting is enabled for this public repository. Do not use a public issue for vulnerability details.
 
 Include, after redaction:
 
@@ -27,7 +25,7 @@ Include, after redaction:
 - a suggested mitigation, if known; and
 - whether the issue is already public or actively exploited.
 
-The maintainer will validate the report, coordinate a fix and disclosure plan, and credit the reporter if requested and appropriate. Response timing is best effort during the pre-release phase.
+The maintainer will validate the report, coordinate a fix and disclosure plan, and credit the reporter if requested and appropriate. Response timing is best effort.
 
 ## High-priority security boundaries
 
@@ -64,4 +62,4 @@ Security testing must not target systems or repositories without authorization.
 
 ## Dependency and release handling
 
-Before a public release, maintainers should re-run dependency and secret scans, rebuild from the lock files, inspect generated screenshots and packages, and confirm that the selected license and third-party notices are complete. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Before each public release, maintainers should re-run dependency and secret scans, rebuild from the lock files, inspect generated screenshots and packages, and confirm that the selected license and third-party notices are complete. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

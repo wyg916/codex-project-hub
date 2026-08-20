@@ -2,9 +2,9 @@
 
 Thank you for helping improve Codex Project Hub.
 
-## Pre-release licensing gate
+## License and contribution terms
 
-The project has not selected an open-source license. Until a `LICENSE` file and contribution terms are approved, substantive code contributions cannot be merged. You may still report bugs, propose changes, and improve release-preparation documentation, but do not assume that the absence of a license grants permission to reuse or redistribute the code.
+The project is licensed under Apache-2.0. Unless you explicitly state otherwise, an intentional contribution submitted for inclusion in the project is provided under the same license, as described by Section 5 of the Apache License 2.0. You must have the right to submit your contribution and must preserve applicable third-party notices.
 
 ## Before opening an issue
 

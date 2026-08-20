@@ -4,7 +4,7 @@
 
 This is the initial release-preparation inventory for Codex Project Hub. It does not replace the complete license text distributed by each dependency. Dependency versions and licenses must be regenerated and reviewed immediately before a public release or binary distribution.
 
-The project itself has **not** selected a license. Third-party licenses do not grant a license to this project's original code.
+The project's original code is licensed under Apache-2.0. Third-party components remain under their respective licenses; the project license does not replace those terms.
 
 ## Frontend runtime dependencies
 
@@ -84,7 +84,7 @@ The Windows installer also pins the build/install toolchain to pip 26.2.1 and se
 
 Before release:
 
-1. Select and add the project's own license.
+1. Verify that `LICENSE`, `NOTICE`, package metadata, and release metadata all identify Apache-2.0 consistently.
 2. Regenerate and verify the Python and npm lock files, and optionally export an SBOM from the exact release environment.
 3. Preserve all required license texts, copyright notices, and attribution.
 4. Inspect the production build to determine which dependency code or data is actually redistributed.

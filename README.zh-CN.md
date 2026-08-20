@@ -5,10 +5,11 @@
 ![平台：Windows 10 和 11](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D4?logo=windows&logoColor=white)
 ![Python：3.11.x](https://img.shields.io/badge/Python-3.11.x-3776AB?logo=python&logoColor=white)
 ![Node.js：20.19.x 或 22.12+](https://img.shields.io/badge/Node.js-20.19.x%20%7C%2022.12%2B-339933?logo=nodedotjs&logoColor=white)
+![许可证：Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
 
 一个运行在 Windows 本机的多 Git 项目与 Worktree 状态总控台。它只通过白名单中的只读 Git 命令获取事实，再叠加人工明确维护的任务元数据，用统一界面展示项目健康度、分支拓扑、工作区变化、异常提醒和最近活动。
 
-> **发布状态：** 项目尚未选定开源许可证。在批准并加入 `LICENSE` 前，公开再分发和首次公开发布均处于阻断状态。
+> **发布状态：** Codex Project Hub 已采用 Apache License 2.0。v0.1.0 使用经过审计的 clean-root 历史发布。
 
 ![使用合成演示仓库的项目总览](docs/images/dashboard-overview.webp)
 
@@ -201,7 +202,7 @@ npm run e2e
 
 近期工作有意限定在本地总控台范围：
 
-- 完成开源许可证和第三方声明审批。
+- 持续保持 Apache-2.0 许可证、第三方声明与发布产物一致。
 - 保持 Windows 安装和全新启动路径可复现。
 - 补充路径边界、损坏仓库和大型 Worktree 场景测试。
 - 改善压缩分支拓扑的无障碍体验和文档。
@@ -211,15 +212,15 @@ npm run e2e
 
 ## 贡献与支持
 
-项目正在准备首次开源发布。提交贡献或支持请求前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)、[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 和 [SUPPORT.md](SUPPORT.md)。在项目许可证选定前，不能接受实质性代码贡献。
+项目已采用 Apache-2.0。提交贡献或支持请求前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)、[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 和 [SUPPORT.md](SUPPORT.md)。
 
 安全问题必须按 [SECURITY.md](SECURITY.md) 私下报告，不得在公开 Issue 中发布利用细节。
 
 ## License
 
-**等待所有者决定。** 当前尚未授予开源许可证，也没有 `LICENSE` 文件。在版权持有人明确选择并加入许可证前，所有权利保留。这是发布阻断项，不构成任何临时授权。
+Copyright 2026 wyg。项目采用 [Apache License 2.0](LICENSE)。
 
-当前候选为 MIT 和 Apache-2.0。第三方组件继续适用各自条款，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+第三方组件继续适用各自条款，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [NOTICE](NOTICE)。
 
 ## 致谢
 
@@ -227,6 +228,6 @@ Codex Project Hub 使用 FastAPI、React、React Flow、Vite、watchdog、SQLite
 
 ## 独立项目声明
 
-> Codex Project Hub is an independent project preparing for an open-source release and is not affiliated with, endorsed by, or sponsored by OpenAI.
+> Codex Project Hub is an independent open-source project and is not affiliated with, endorsed by, or sponsored by OpenAI.
 >
-> Codex Project Hub 是一个正在准备开源发布的独立项目，与 OpenAI 不存在隶属、背书或赞助关系。
+> Codex Project Hub 是一个独立的开源项目，与 OpenAI 不存在隶属、背书或赞助关系。

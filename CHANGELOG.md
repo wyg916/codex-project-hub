@@ -1,8 +1,8 @@
 # Changelog
 
-This file records user-visible changes intended for public releases. Dates and version numbers will be added only after a release is approved and actually created.
+This file records user-visible changes in public releases.
 
-## Unreleased
+## [0.1.0] - 2026-08-20
 
 ### Added
 
@@ -28,9 +28,9 @@ This file records user-visible changes intended for public releases. Dates and v
 - HTTP Host and Origin boundaries, WebSocket Origin/message limits, request-size limits, security headers, no-store API responses, and opt-in native actions now protect the localhost browser boundary.
 - Git inspection now uses a centralized command allow list, disables optional locks and repository fsmonitor execution, clears inherited `GIT_*` variables, caps output, and redacts credential-shaped output.
 - Status metadata writes validate schema and path containment, reject reparse points, and bound backups, SQLite events, request data, and concurrent scans.
-- FastAPI, Starlette, pip, setuptools, pytest, and pytest-asyncio were updated to the versions recorded in the release lock. The dependency audit for the exact release candidate is still pending and must be recorded in `docs/TEST_REPORT.md`; that audit checks known advisories and cannot prove the software vulnerability-free.
-- Public release remains blocked until the owner selects a license, approves the copyright notice, completes resource provenance review, and confirms that publishable Git history contains no private configuration or unapproved binary assets.
+- FastAPI, Starlette, pip, setuptools, pytest, and pytest-asyncio were updated to the versions recorded in the release lock. The dated audit in `docs/TEST_REPORT.md` reported no known advisories for the exact locked environment; this cannot prove the software vulnerability-free.
+- The public candidate uses an audited clean-root history that excludes private configuration and unapproved binary assets from all published commits.
 
 ### License
 
-- License selection remains pending. This changelog does not grant permission to use, copy, modify, or redistribute the project.
+- The project is licensed under Apache-2.0, with Copyright 2026 wyg.

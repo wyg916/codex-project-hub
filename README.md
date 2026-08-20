@@ -5,10 +5,11 @@ English | [简体中文](README.zh-CN.md)
 ![Platform: Windows 10 and 11](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D4?logo=windows&logoColor=white)
 ![Python: 3.11.x](https://img.shields.io/badge/Python-3.11.x-3776AB?logo=python&logoColor=white)
 ![Node.js: 20.19.x or 22.12+](https://img.shields.io/badge/Node.js-20.19.x%20%7C%2022.12%2B-339933?logo=nodedotjs&logoColor=white)
+![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
 
 A Windows-local dashboard for observing multiple Git repositories and worktrees from one place. It reads Git facts through an allow-listed, read-only command runner and combines them with explicitly maintained task metadata to present project health, branch topology, worktree changes, alerts, and recent activity.
 
-> **Release status:** the open-source license has not been selected. Public redistribution and the first public release remain blocked until a `LICENSE` file is approved and added.
+> **Release status:** Codex Project Hub is licensed under the Apache License 2.0. The v0.1.0 release is built from an audited clean-root history.
 
 ![Project overview showing synthetic local repositories](docs/images/dashboard-overview.webp)
 
@@ -182,7 +183,7 @@ npm run build
 npm run e2e
 ```
 
-Final results for the exact release candidate will be recorded in [docs/TEST_REPORT.md](docs/TEST_REPORT.md) and [docs/FINAL_ACCEPTANCE.md](docs/FINAL_ACCEPTANCE.md). Both files currently contain pending 2026-08-20 templates; an unchecked or “pending” entry is not a passing result.
+Final results for the exact release candidate are recorded in [docs/TEST_REPORT.md](docs/TEST_REPORT.md) and [docs/FINAL_ACCEPTANCE.md](docs/FINAL_ACCEPTANCE.md). They distinguish technical verification from the owner-controlled publication steps.
 
 ## Security and privacy
 
@@ -201,7 +202,7 @@ Read [SECURITY.md](SECURITY.md) before reporting a vulnerability and [PRIVACY.md
 
 Near-term work is intentionally limited to the local dashboard:
 
-- Complete the open-source license and third-party notice review.
+- Keep the Apache-2.0 license and third-party notice inventory aligned with release artifacts.
 - Keep the Windows installation and clean-start path reproducible.
 - Expand tests around path boundaries, malformed repositories, and large-worktree behavior.
 - Improve accessibility and documentation for compressed branch topology.
@@ -211,15 +212,15 @@ Cloud sync, multi-user permissions, agent execution, pull-request management, CI
 
 ## Contributing and support
 
-The project is preparing for its initial open-source release. Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and [SUPPORT.md](SUPPORT.md) before opening a contribution or support request. Substantive code contributions cannot be accepted until the project license is selected.
+The project is available under Apache-2.0. Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and [SUPPORT.md](SUPPORT.md) before opening a contribution or support request.
 
 Security reports must follow [SECURITY.md](SECURITY.md) and must not be posted with exploit details in a public issue.
 
 ## License
 
-**Pending owner decision.** No open-source license has been granted yet, and no `LICENSE` file is present. All rights remain reserved until the copyright holder explicitly selects and adds a license. This is a release blocker, not a placeholder grant of permission.
+Copyright 2026 wyg. Licensed under the [Apache License 2.0](LICENSE).
 
-The current candidates are MIT and Apache-2.0. Third-party components retain their own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Third-party components retain their own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [NOTICE](NOTICE).
 
 ## Acknowledgements
 
@@ -227,6 +228,6 @@ Codex Project Hub is built with FastAPI, React, React Flow, Vite, watchdog, SQLi
 
 ## Independent project notice
 
-> Codex Project Hub is an independent project preparing for an open-source release and is not affiliated with, endorsed by, or sponsored by OpenAI.
+> Codex Project Hub is an independent open-source project and is not affiliated with, endorsed by, or sponsored by OpenAI.
 >
-> Codex Project Hub 是一个正在准备开源发布的独立项目，与 OpenAI 不存在隶属、背书或赞助关系。
+> Codex Project Hub 是一个独立的开源项目，与 OpenAI 不存在隶属、背书或赞助关系。
