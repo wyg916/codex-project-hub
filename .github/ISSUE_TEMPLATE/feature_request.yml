@@ -1,0 +1,65 @@
+name: Feature request
+description: Propose a focused improvement within the local dashboard's scope.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem before prescribing an implementation. Current scope is a Windows-local, single-user dashboard for read-only Git observation and explicit task metadata; agent execution, cloud sync, PR/CI orchestration, and automatic Git mutation are not implemented.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What workflow is difficult today, and who encounters it?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe observable behavior and success criteria.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Optional implementation ideas, alternatives, or UI notes.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Project overview
+        - Project dashboard and topology
+        - Git and worktree scanning
+        - Explicit task metadata
+        - Realtime updates
+        - Installation and Windows scripts
+        - Testing and documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Security and privacy impact
+      description: Note any new filesystem access, process launch, Git command, network access, stored data, dependency, or screenshot requirement.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Synthetic example
+      description: Use neutral names and generic paths; do not include real project or customer data.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched for an existing request.
+          required: true
+        - label: This request does not contain secrets, private project names, or personal paths.
+          required: true
+        - label: I understand that the feature is not committed to the roadmap until maintainers accept it.
+          required: true

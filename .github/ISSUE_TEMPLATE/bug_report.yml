@@ -1,0 +1,78 @@
+name: Bug report
+description: Report a reproducible problem using sanitized or synthetic data.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Codex Project Hub. Do not include secrets, private repository names, usernames, absolute personal paths, raw databases, or unredacted logs. Report vulnerabilities privately through the Security tab instead.
+  - type: input
+    id: version
+    attributes:
+      label: Commit or version
+      description: Provide the short commit ID or release version you used.
+      placeholder: abc1234
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+        - Other or unsupported
+    validations:
+      required: true
+  - type: input
+    id: runtimes
+    attributes:
+      label: Runtime versions
+      description: Provide sanitized output for Python, Node.js, npm, and Git versions.
+      placeholder: Python 3.11.x; Node.js 20.19.x or >=22.12.0; npm 10.x; Git 2.x
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Use a synthetic repository if possible and list the smallest reliable sequence.
+      placeholder: |
+        1. Create an example repository...
+        2. Register it in the project overview...
+        3. Select the example branch...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Paste only the minimal redacted error or attach a synthetic-data screenshot.
+      render: text
+  - type: textarea
+    id: attempts
+    attributes:
+      label: Checks and workarounds tried
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched for an existing issue.
+          required: true
+        - label: I removed credentials, private names, personal paths, and real repository data.
+          required: true
+        - label: This report does not contain private vulnerability details.
+          required: true

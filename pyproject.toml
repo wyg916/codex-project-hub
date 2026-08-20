@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+minversion = "9.0"
+testpaths = ["backend/tests"]
+pythonpath = ["."]
+addopts = "-q --disable-warnings"
+
+[tool.coverage.run]
+source = ["backend/app"]
